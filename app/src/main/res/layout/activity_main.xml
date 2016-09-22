@@ -40,19 +40,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="b1"
+            android:text="Restart"
+            android:onClick="restart"
             />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="b2"
+            android:text="Setting"
+            android:onClick="setting"
             />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="b3"
+            android:onClick="exit"
+            android:text="Exit"
             />
     </LinearLayout>
     <TextView

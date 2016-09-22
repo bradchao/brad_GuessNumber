@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView info;
     private EditText input;
     private int times;
+    private String[] items = {"2","3","4","5","6"};
+    private int d = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,33 @@ public class MainActivity extends AppCompatActivity {
     private void initGame(){
         times = 0;
         info.setText("");
-        answer = createAnswer(3);
+        answer = createAnswer(d);
     }
+
+    public void restart(View v){
+        initGame();
+    }
+
+    public void setting(View v){
+        AlertDialog alert = null;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("幾碼?");
+        builder.setItems(items, new AlertDialog.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                d = which + 2;
+                initGame();
+            }
+        });
+        alert = builder.create();
+        alert.show();
+
+    }
+
+    public void exit(View v){
+        finish();
+    }
+
 
     // create a answer
     private String createAnswer(int n){
