@@ -48,7 +48,16 @@ public class MainActivity extends AppCompatActivity {
     }
     // check ?A?B
     private String checkAB(String a, String g){
-        return "1A2B";
+        int A, B; A = B = 0;
+        for (int i=0; i<g.length(); i++){
+            if (g.charAt(i) == a.charAt(i)){
+                A++;
+            }else if (a.indexOf(g.charAt(i)) != -1){
+                B++;
+            }
+        }
+
+        return A + "A" + B + "B";
     }
 
 }
