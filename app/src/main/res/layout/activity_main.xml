@@ -3,5 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+        <Button
+            android:id="@+id/guess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="猜"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/guess"
+            android:layout_alignTop="@id/guess"
+            android:layout_alignBottom="@id/guess"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            />
+    </RelativeLayout>
 </RelativeLayout>
