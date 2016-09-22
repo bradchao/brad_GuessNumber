@@ -1,5 +1,6 @@
 package brad.tw.guessnumber;
 
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,11 +25,7 @@ public class MainActivity extends AppCompatActivity {
         info = (TextView)findViewById(R.id.textInfo);
         input = (EditText)findViewById(R.id.editGuess);
 
-        answer = createAnswer(3);
-        //Log.d("brad", answer);
-
-        times = 0;
-
+        initGame();
     }
 
     public void doGuess(View v){
@@ -53,8 +50,21 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Info");
         builder.setMessage(isWinner?"WINNER":"魯蛇一條\n"+answer);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", new AlertDialog.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                initGame();
+            }
+        });
         alert = builder.create();
         alert.show();
+    }
+
+    private void initGame(){
+        times = 0;
+        info.setText("");
+        answer = createAnswer(3);
     }
 
     // create a answer
