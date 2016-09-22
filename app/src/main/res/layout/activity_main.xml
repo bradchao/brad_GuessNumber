@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     >
     <RelativeLayout
+        android:id="@+id/topLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,8 +16,10 @@
             android:text="猜"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:onClick="doGuess"
             />
         <EditText
+            android:id="@+id/editGuess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/guess"
@@ -26,4 +29,38 @@
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/funcLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="b1"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="b2"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="b3"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topLine"
+        android:layout_above="@id/funcLine"
+        />
+
 </RelativeLayout>
