@@ -1,5 +1,6 @@
 package brad.tw.guessnumber;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private String answer;
     private TextView info;
     private EditText input;
+    private int times;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +27,34 @@ public class MainActivity extends AppCompatActivity {
         answer = createAnswer(3);
         //Log.d("brad", answer);
 
+        times = 0;
+
     }
 
     public void doGuess(View v){
+        times++;
         String guess = input.getText().toString();
         String result = checkAB(answer, guess);
-        info.append(guess + ":" + result + "\n");
+        info.append(times + ". " + guess + ":" + result + "\n");
         input.setText("");
+
+        if (result.equals("3A0B")){
+            // WINNER
+            showDialog(true);
+        }else if (times == 10){
+            // LOSSER;
+            showDialog(false);
+        }
+
+    }
+
+    private void showDialog(boolean isWinner){
+        AlertDialog alert = null;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Info");
+        builder.setMessage(isWinner?"WINNER":"魯蛇一條\n"+answer);
+        alert = builder.create();
+        alert.show();
     }
 
     // create a answer
